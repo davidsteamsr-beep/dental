@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ARGENT Dental — клиника цифровой стоматологии</title>
+<meta name="description" content="Премиальная стоматология: имплантация, ортодонтия, эстетика улыбки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700&family=Unbounded:wght@200;300;400;600&display=swap" rel="stylesheet">
+<script>try{var d=document.documentElement.dataset;d.theme=localStorage.getItem('theme')||'dark';d.palette=localStorage.getItem('palette')||'aqua'}catch(e){document.documentElement.dataset.theme='dark';document.documentElement.dataset.palette='aqua'}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Фон: мягкие градиентные сферы (двигаются параллаксом) -->
+<div class="bg" aria-hidden="true"><i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="sprog" id="sprog" aria-hidden="true"></div>
+
+<!-- Кастомный курсор (только на устройствах с мышью) -->
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cur-ring"></span><span class="cur-dot"></span></div>
+
+<header class="hdr">
+  <a href="#/" data-link class="logo">ARGENT<span>Dental</span></a>
+  <nav id="nav">
+    <a href="#/" data-link="home">Главная</a>
+    <a href="#/prices" data-link="prices">Услуги и Цены</a>
+    <a href="#/doctors" data-link="doctors">Врачи</a>
+    <a href="#/about" data-link="about">О клинике</a>
+    <a href="#/contacts" data-link="contacts">Контакты</a>
+    <span class="nav-line" id="navLine" aria-hidden="true"></span>
+  </nav>
+  <div class="hctl">
+    <a href="#/contacts" data-link="contacts" class="hdr-cta" data-magnet>Записаться<i>→</i></a>
+    <div class="pals" id="pals" role="group" aria-label="Палитра">
+      <span class="thumb" id="thumb"></span>
+      <button class="pal" data-p="bronze" title="Слоновая кость и бронза" aria-label="Бронза"><i></i></button>
+      <button class="pal" data-p="sage" title="Шалфей и графит" aria-label="Шалфей"><i></i></button>
+      <button class="pal" data-p="aqua" title="Аква и бирюза" aria-label="Аква"><i></i></button>
+    </div>
+    <button class="sw" id="theme" role="switch" aria-checked="false" aria-label="Светлая тема" title="Светлая / тёмная тема"><span class="knob">
+      <svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="#f5b301"/><path d="M12 2v2.2M12 19.8V22M2 12h2.2M19.8 12H22M5 5l1.6 1.6M17.4 17.4L19 19M5 19l1.6-1.6M17.4 6.6L19 5"/></svg>
+    </span></button>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="app">
+  <!-- ГЛАВНАЯ -->
+  <section class="page" data-page="home">
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="kicker"><span class="kicker-dot"></span>Цифровая стоматология · Москва</div>
+        <h1 data-split="words">Эстетика здоровой улыбки</h1>
+        <p class="lead lead-hero">Лечение без боли и спешки. Планируем результат на 3D-модели ещё до первого визита.</p>
+        <div class="hero-actions">
+          <a href="#/contacts" data-link="contacts" data-book="Консультация" class="btn" data-magnet data-cursor="→">Записаться на прием</a>
+          <a href="#/prices" data-link="prices" class="link-arrow">Услуги и цены<i>→</i></a>
+        </div>
+        <div class="hero-stats">
+          <div><b data-count="14">14</b><span>лет средний стаж</span></div>
+          <div><b data-count="8">8</b><span>секунд на 3D-снимок</span></div>
+          <div><b data-count="25" data-suffix="×">25×</b><span>увеличение микроскопа</span></div>
+        </div>
+      </div>
+      <!-- Интерактивная схема зубов (нумерация FDI), строится в main.js -->
+      <div class="odo" id="odo">
+        <div class="odo-stage">
+          <span class="odo-corner tl" aria-hidden="true"></span><span class="odo-corner tr" aria-hidden="true"></span>
+          <span class="odo-corner bl" aria-hidden="true"></span><span class="odo-corner br" aria-hidden="true"></span>
+          <svg id="svg" viewBox="40 64 520 212" role="img" aria-label="Схема зубов"></svg>
+        </div>
+        <div class="ro" id="ro"></div>
+        <div class="odo-meta" aria-hidden="true"><span>FDI · 1—32</span><span>3D PLAN</span></div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"><span>Листайте</span><i></i></div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Имплантация<i></i>Ортодонтия<i></i>Эстетика<i></i>Хирургия<i></i>Терапия<i></i>Гигиена<i></i>Диагностика<i></i></span>
+        <span>Имплантация<i></i>Ортодонтия<i></i>Эстетика<i></i>Хирургия<i></i>Терапия<i></i>Гигиена<i></i>Диагностика<i></i></span>
+      </div>
+    </div>
+    <div class="wrap">
+      <h2 data-split="words">Почему мы</h2>
+      <div id="why"></div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ И ЦЕНЫ -->
+  <section class="page" data-page="prices">
+    <div class="wrap">
+      <h1 class="h2" data-split="words">Услуги и цены</h1>
+      <p class="rv lead">Цены указаны «от». Точную стоимость назовём после диагностики.</p>
+      <div id="acc" class="acc"></div>
+    </div>
+  </section>
+
+  <!-- ВРАЧИ -->
+  <section class="page" data-page="doctors">
+    <div class="wrap">
+      <h1 class="h2" data-split="words">Врачи</h1>
+      <div class="grid g3" id="docs"></div>
+    </div>
+  </section>
+
+  <!-- О КЛИНИКЕ -->
+  <section class="page" data-page="about">
+    <div class="wrap">
+      <h1 class="h2" data-split="words">О клинике</h1>
+      <p class="rv lead big">Мы считаем, что лучшая стоматология — та, которую вы не замечаете: ни во время лечения, ни после него. Поэтому работаем медленнее, чем принято, и точнее, чем требуют стандарты.</p>
+      <h2 data-split="words">Оборудование</h2>
+      <div class="grid g3" id="eq"></div>
+      <h2 data-split="words">Лицензии и сертификаты</h2>
+      <div class="grid g4" id="lic"></div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="page" data-page="contacts">
+    <div class="wrap">
+      <h1 class="h2" data-split="words">Контакты</h1>
+      <p class="rv lead">Ответим в течение 15 минут. Первая консультация — бесплатно.</p>
+      <div class="ct">
+        <div class="ct-l">
+          <ul class="ci rv">
+            <li><span>Адрес</span><b>Москва, Пресненская наб., 12<br>41 этаж</b></li>
+            <li><span>Телефон</span><a class="big" href="tel:+74950000000">+7 (495) 000-00-00</a></li>
+            <li><span>Email</span><a href="mailto:hello@argent-dental.ru">hello@argent-dental.ru</a></li>
+          </ul>
+          <div class="hrsb rv">
+            <div id="live" class="live"></div>
+            <ul class="hrs" id="hrs"></ul>
+            <p class="msk">Время московское</p>
+          </div>
+        </div>
+        <form id="form" class="cform rv" novalidate>
+          <h3 class="fh">Запись на приём</h3>
+          <div>
+            <p class="fl">Что вас интересует</p>
+            <div class="chips" id="chips" role="group" aria-label="Услуга"></div>
+          </div>
+          <label class="fld"><input name="name" placeholder=" " required autocomplete="name"><span>Имя</span></label>
+          <label class="fld"><input name="phone" type="tel" placeholder=" " required autocomplete="tel"><span>Телефон</span></label>
+          <label class="fld"><textarea name="msg" id="msg" rows="2" placeholder=" "></textarea><span>Комментарий</span></label>
+          <button class="btn" type="submit">Отправить заявку</button>
+          <p id="ok" class="ok" role="status"></p>
+          <small class="pd">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</small>
+        </form>
+      </div>
+
+      <h2 data-split="words">Как добраться</h2>
+      <div class="route rv">
+        <div class="rmap">
+          <svg viewBox="0 0 800 440" role="img" aria-label="Схема проезда: клиника на Пресненской набережной">
+            <path class="rvr" d="M-20 372C140 336 270 410 430 366S700 280 820 300"/>
+            <text class="mt" x="560" y="372" transform="rotate(-12 560 372)">Москва-река</text>
+            <path class="rd main" d="M-20 318C140 282 270 356 430 312S700 226 820 246"/>
+            <path class="rd" d="M0 150L800 118"/>
+            <path class="rd" d="M0 236L800 214"/>
+            <path class="rd" d="M190 0L236 330"/>
+            <path class="rd" d="M470 0L462 310"/>
+            <path class="rd" d="M660 0L700 240"/>
+            <rect class="bl" x="250" y="154" width="96" height="52" rx="3"/>
+            <rect class="bl" x="352" y="160" width="60" height="40" rx="3"/>
+            <rect class="bl" x="496" y="140" width="110" height="56" rx="3"/>
+            <rect class="bl" x="60" y="164" width="100" height="50" rx="3"/>
+            <rect class="bl" x="268" y="248" width="150" height="38" rx="3"/>
+            <rect class="bl" x="500" y="248" width="120" height="34" rx="3"/>
+            <path class="walk" d="M250 229L463 223L464 262"/>
+            <path class="walk" d="M692 190L691 218L464 224"/>
+            <g class="mm" transform="translate(250 229)"><circle r="10"/><text y="3.5">М</text></g>
+            <text class="ml" x="250" y="203">Выставочная</text>
+            <g class="mm" transform="translate(692 190)"><circle r="10"/><text y="3.5">М</text></g>
+            <text class="ml" x="692" y="164">Деловой центр</text>
+            <g transform="translate(464 262)">
+              <circle class="pulse" r="8"/>
+              <circle class="pin" r="6"/>
+              <g transform="translate(16 -46)"><rect class="card" width="172" height="46" rx="3"/><text class="c1" x="14" y="21">ARGENT Dental</text><text class="c2" x="14" y="37">Пресненская наб., 12</text></g>
+            </g>
+            <g class="mt" transform="translate(752 40)"><path d="M0 14V-14M-6 -6L0 -14L6 -6" class="na"/><text y="30" text-anchor="middle">С</text></g>
+          </svg>
+        </div>
+        <div class="rinfo">
+          <ul class="ci">
+            <li><span>Метро</span><b>«Выставочная» — 5 мин пешком</b></li>
+            <li><span>Метро</span><b>«Деловой центр» — 7 мин пешком</b></li>
+            <li><span>Парковка</span><b>Подземная, для пациентов бесплатно</b></li>
+          </ul>
+          <a class="btn sm" target="_blank" rel="noopener" href="https://yandex.ru/maps/?ll=37.539%2C55.749&z=16&pt=37.539%2C55.749,pm2dgm">Открыть в Яндекс Картах</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="ftr-top">
+    <a href="#/" data-link class="logo">ARGENT<span>Dental</span></a>
+    <div class="ftr-nav" role="navigation" aria-label="Подвал">
+      <a href="#/prices" data-link="prices">Услуги и цены</a>
+      <a href="#/doctors" data-link="doctors">Врачи</a>
+      <a href="#/about" data-link="about">О клинике</a>
+      <a href="#/contacts" data-link="contacts">Контакты</a>
+    </div>
+    <a class="ftr-tel" href="tel:+74950000000" data-cursor="↗">+7 (495) 000-00-00</a>
+  </div>
+  <div class="ftr-mega" aria-hidden="true">ARGENT</div>
+  <div class="ftr-base">
+    <span>© 2026 ARGENT Dental</span>
+    <span>Демонстрационный сайт. Лицензия и цены условные.</span>
+    <a href="#/" data-link class="ftr-up">Наверх ↑</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
